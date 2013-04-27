@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
-#
+
 Summary:	Implementation of SVG Tiny
 Name:		libsvgtiny
 Version:	0.1.0
@@ -55,33 +55,32 @@ Statyczna biblioteka libsvgtiny.
 %setup -q
 
 %build
-CFLAGS="%{rpmcflags}"
-LDFLAGS="%{rpmldflags}"
-export CFLAGS
-export LDFLAGS
+export CC="%{__cc}"
+export CFLAGS="%{rpmcflags}"
+export LDFLAGS="%{rpmldflags}"
 
-%{__make} PREFIX=%{_prefix} COMPONENT_TYPE=lib-shared Q='' \
-	-Iinclude -Isrc"
+%{__make} Q= \
+	PREFIX=%{_prefix} \
+	COMPONENT_TYPE=lib-shared
+
 %if %{with static_libs}
-%{__make} PREFIX=%{_prefix} COMPONENT_TYPE=lib-static Q='' \
-	-Iinclude -Isrc"
+%{__make} Q= \
+	PREFIX=%{_prefix} \
+	COMPONENT_TYPE=lib-static
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
+%{__make} install Q= \
 	PREFIX=%{_prefix} \
 	COMPONENT_TYPE=lib-shared \
-	Q=''
+	DESTDIR=$RPM_BUILD_ROOT
 
 %if %{with static_libs}
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
+%{__make} install Q= \
 	PREFIX=%{_prefix} \
 	COMPONENT_TYPE=lib-static \
-	Q=''
+	DESTDIR=$RPM_BUILD_ROOT
 %endif
 
 %clean
