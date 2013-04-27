@@ -10,6 +10,7 @@ License:	MIT
 Group:		Libraries
 Source0:	http://download.netsurf-browser.org/libs/releases/%{name}-%{version}-src.tar.gz
 # Source0-md5:	b1da875a8cfa4e005bb74c6aac62baf1
+Patch0:		lib.patch
 URL:		http://www.netsurf-browser.org/projects/libsvgtiny/
 BuildRequires:	libdom-devel >= 0.0.1
 BuildRequires:	libwapcaplet-devel >= 0.2.0
@@ -53,6 +54,7 @@ Statyczna biblioteka libsvgtiny.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 export CC="%{__cc}"
@@ -72,12 +74,14 @@ export LDFLAGS="%{rpmldflags}"
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install Q= \
+	lib=%{_lib} \
 	PREFIX=%{_prefix} \
 	COMPONENT_TYPE=lib-shared \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %if %{with static_libs}
 %{__make} install Q= \
+	lib=%{_lib} \
 	PREFIX=%{_prefix} \
 	COMPONENT_TYPE=lib-static \
 	DESTDIR=$RPM_BUILD_ROOT
