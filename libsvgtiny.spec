@@ -12,6 +12,7 @@ Source0:	http://download.netsurf-browser.org/libs/releases/%{name}-%{version}-sr
 # Source0-md5:	b1da875a8cfa4e005bb74c6aac62baf1
 Patch0:		lib.patch
 URL:		http://www.netsurf-browser.org/projects/libsvgtiny/
+BuildRequires:	gperf
 BuildRequires:	libdom-devel >= 0.0.1
 BuildRequires:	libwapcaplet-devel >= 0.2.0
 BuildRequires:	netsurf-buildsystem
