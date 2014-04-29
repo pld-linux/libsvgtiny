@@ -4,18 +4,18 @@
 
 Summary:	Implementation of SVG Tiny
 Name:		libsvgtiny
-Version:	0.1.0
+Version:	0.1.1
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://download.netsurf-browser.org/libs/releases/%{name}-%{version}-src.tar.gz
-# Source0-md5:	b1da875a8cfa4e005bb74c6aac62baf1
-Patch0:		lib.patch
+# Source0-md5:	6e3da8ecfde7749852a66195ebea0de1
+#Patch0:		lib.patch
 URL:		http://www.netsurf-browser.org/projects/libsvgtiny/
 BuildRequires:	gperf
-BuildRequires:	libdom-devel >= 0.0.1
-BuildRequires:	libwapcaplet-devel >= 0.2.0
-BuildRequires:	netsurf-buildsystem
+BuildRequires:	libdom-devel >= 0.1.0
+BuildRequires:	libwapcaplet-devel >= 0.2.1
+BuildRequires:	netsurf-buildsystem >= 1.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -55,7 +55,7 @@ Statyczna biblioteka libsvgtiny.
 
 %prep
 %setup -q
-%patch0 -p1
+#%%patch0 -p1
 
 %build
 export CC="%{__cc}"
