@@ -10,7 +10,6 @@ License:	MIT
 Group:		Libraries
 Source0:	http://download.netsurf-browser.org/libs/releases/%{name}-%{version}-src.tar.gz
 # Source0-md5:	6e3da8ecfde7749852a66195ebea0de1
-#Patch0:		lib.patch
 URL:		http://www.netsurf-browser.org/projects/libsvgtiny/
 BuildRequires:	gperf
 BuildRequires:	libdom-devel >= 0.1.0
@@ -55,7 +54,6 @@ Statyczna biblioteka libsvgtiny.
 
 %prep
 %setup -q
-#%%patch0 -p1
 
 %build
 export CC="%{__cc}"
