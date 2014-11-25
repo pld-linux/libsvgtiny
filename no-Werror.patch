@@ -1,0 +1,15 @@
+--- libsvgtiny-0.1.1/Makefile~	2014-04-18 13:19:22.000000000 +0200
++++ libsvgtiny-0.1.1/Makefile	2014-11-25 19:33:17.289018921 +0100
+@@ -15,12 +15,6 @@
+ WARNFLAGS := -Wall -W -Wundef -Wpointer-arith -Wcast-align \
+ 	-Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes \
+ 	-Wmissing-declarations -Wnested-externs -pedantic
+-# BeOS/Haiku/AmigaOS standard library headers create warnings
+-ifneq ($(TARGET),beos)
+-  ifneq ($(TARGET),amiga)
+-    WARNFLAGS := $(WARNFLAGS) -Werror
+-  endif
+-endif
+ 
+ CFLAGS := -D_BSD_SOURCE -I$(CURDIR)/include/ \
+ 	-I$(CURDIR)/src $(WARNFLAGS) $(CFLAGS)
