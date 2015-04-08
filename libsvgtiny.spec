@@ -45,7 +45,7 @@ Summary:	libsvgtiny library headers
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libsvgtiny
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libdom-devel >= 0.1.1
+Requires:	libdom-devel >= 0.1.2
 
 %description devel
 This package contains the include files and other resources you can
