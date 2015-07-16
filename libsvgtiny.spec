@@ -76,14 +76,14 @@ export CC="%{__cc}"
 export CFLAGS="%{rpmcflags}"
 export LDFLAGS="%{rpmldflags}"
 
-%{__make} \
+%{__make} -j1 \
 	Q= \
 	PREFIX=%{_prefix} \
 	LIBDIR=%{_lib} \
 	COMPONENT_TYPE=lib-shared
 
 %if %{with static_libs}
-%{__make} \
+%{__make} -j1 \
 	Q= \
 	PREFIX=%{_prefix} \
 	LIBDIR=%{_lib} \
@@ -92,7 +92,7 @@ export LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install \
+%{__make} -j1 install \
 	Q= \
 	PREFIX=%{_prefix} \
 	LIBDIR=%{_lib} \
@@ -100,7 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %if %{with static_libs}
-%{__make} install \
+%{__make} -j1 install \
 	Q= \
 	PREFIX=%{_prefix} \
 	LIBDIR=%{_lib} \
