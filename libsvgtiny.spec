@@ -5,21 +5,20 @@
 Summary:	Implementation of SVG Tiny
 Summary(pl.UTF-8):	Implementacja SVG Tiny
 Name:		libsvgtiny
-Version:	0.1.3
+Version:	0.1.4
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://download.netsurf-browser.org/libs/releases/%{name}-%{version}-src.tar.gz
-# Source0-md5:	b4dd1cb5a36228604b6cf0f8c87fd6f8
-Patch0:		no-Werror.patch
+# Source0-md5:	c6a543fd9ec608d6e7c3af8285f9878f
 URL:		http://www.netsurf-browser.org/projects/libsvgtiny/
 BuildRequires:	gperf
-BuildRequires:	libdom-devel >= 0.1.2
-BuildRequires:	libwapcaplet-devel >= 0.2.2
-BuildRequires:	netsurf-buildsystem >= 1.3
+BuildRequires:	libdom-devel >= 0.3.0
+BuildRequires:	libwapcaplet-devel >= 0.3.0
+BuildRequires:	netsurf-buildsystem >= 1.5
 BuildRequires:	pkgconfig
-Requires:	libdom >= 0.1.2
-Requires:	libwapcaplet >= 0.2.2
+Requires:	libdom >= 0.3.0
+Requires:	libwapcaplet >= 0.3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -69,9 +68,9 @@ Statyczna biblioteka libsvgtiny.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
+export AR="%{__ar}"
 export CC="%{__cc}"
 export CFLAGS="%{rpmcflags}"
 export LDFLAGS="%{rpmldflags}"
@@ -91,6 +90,11 @@ export LDFLAGS="%{rpmldflags}"
 %endif
 
 %install
+export AR="%{__ar}"
+export CC="%{__cc}"
+export CFLAGS="%{rpmcflags}"
+export LDFLAGS="%{rpmldflags}"
+
 rm -rf $RPM_BUILD_ROOT
 %{__make} -j1 install \
 	Q= \
