@@ -17,8 +17,8 @@ BuildRequires:	libdom-devel >= 0.3.1
 BuildRequires:	libwapcaplet-devel >= 0.4.0
 BuildRequires:	netsurf-buildsystem >= 1.5
 BuildRequires:	pkgconfig
-Requires:	libdom >= 0.3.0
-Requires:	libwapcaplet >= 0.3.0
+Requires:	libdom >= 0.3.1
+Requires:	libwapcaplet >= 0.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,7 +44,7 @@ Summary:	libsvgtiny library headers
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libsvgtiny
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libdom-devel >= 0.1.2
+Requires:	libdom-devel >= 0.3.1
 
 %description devel
 This package contains the include files and other resources you can
