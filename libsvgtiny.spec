@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	static_libs	# don't build static library
+%bcond_without	static_libs	# static library
 
 Summary:	Implementation of SVG Tiny
 Summary(pl.UTF-8):	Implementacja SVG Tiny
@@ -44,7 +44,7 @@ Summary:	libsvgtiny library headers
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libsvgtiny
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libdom-devel >= 0.3.3
+Requires:	libdom-devel >= 0.4.2
 
 %description devel
 This package contains the include files and other resources you can
